@@ -54,6 +54,7 @@ const Catalog = () => {
                     break
                 default:
             }
+            
         }
     }
 

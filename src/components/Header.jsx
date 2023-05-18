@@ -1,8 +1,9 @@
 import React, { useRef, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
-import logo from '../assets/images/Logo-2.png'
+// import logo from '../assets/images/Logo-2.png'
 import { useSelector } from 'react-redux'
+
 
 const mainNav = [
     {
@@ -24,7 +25,7 @@ const mainNav = [
 ]
 
 const Header = () => {
-    const countItem = useSelector((state)=>state.cartItems.value)
+    const countItem = useSelector((state) => state.cartItems.value)
 
     const { pathname } = useLocation()
     const activeNav = mainNav.findIndex(e => e.path === pathname)
@@ -51,11 +52,11 @@ const Header = () => {
     return (
         <div className="header" ref={headerRef}>
             <div className="container">
-                <div className="header__logo">
+                {/* <div className="header__logo">
                     <Link to="/">
                         <img src={logo} alt="" />
                     </Link>
-                </div>
+                </div> */}
                 <div className="header__menu">
                     <div className="header__menu__mobile-toggle" onClick={menuToggle}>
                         <i className='bx bx-menu-alt-left'></i>
@@ -80,16 +81,20 @@ const Header = () => {
                     </div>
                     <div className="header__menu__right">
                         <div className="header__menu__item header__menu__right__item">
+                        {/* <Link to="/search"> </Link> */}
                             <i className="bx bx-search"></i>
                         </div>
-                        <div className="header__menu__item header__menu__right__item cart" style={{position :"relative"}}>
+
+                        <div className="header__menu__item header__menu__right__item cart" style={{ position: "relative" }}>
                             <Link to="/cart">
                                 <i className="bx bx-shopping-bag"></i>
                                 <span style={styleBadge}>{countItem.length === 0 ? "" : countItem.length}</span>
                             </Link>
                         </div>
+
                         <div className="header__menu__item header__menu__right__item">
                             <i className="bx bx-user"></i>
+
                         </div>
                     </div>
                 </div>

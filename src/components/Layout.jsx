@@ -1,30 +1,32 @@
 import React from 'react'
-
-import { BrowserRouter, Route } from 'react-router-dom'
-
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import Header from './Header'
 import Footer from './Footer'
 import ProductViewModal from './ProductViewModal'
-
 import Routes from '../routes/Routes'
+import { UserAuth } from '../context/AuthContext'
+
+
+
 
 const Layout = () => {
     return (
-        <BrowserRouter>
+        <Router>
             <Route render={props => (
                 <div>
-                    <Header {...props}/>
+                    <Header {...props} />
                     <div className="container">
                         <div className="main">
-                            <Routes/>
+                            <Routes />
                         </div>
                     </div>
-                    <Footer/>
-                    <ProductViewModal/>
+                    <Footer />
+                    <ProductViewModal />
                 </div>
-            )}/>
-        </BrowserRouter>
+            )} />
+        </Router>
     )
+
 }
 
 export default Layout

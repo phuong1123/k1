@@ -1,20 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import Helmet from '../components/Helmet'
 import Section, {SectionBody, SectionTitle} from '../components/Section'
 import Grid from '../components/Grid'
 import ProductCard from '../components/ProductCard'
 import ProductView from '../components/ProductView'
-
 import productData from '../assets/fake-data/products'
-
 const Product = props => {
 
     const product = productData.getProductBySlug(props.match.params.slug)
 
     const relatedProducts = productData.getProducts(8)
 
-    React.useEffect(() => {
+    useEffect(() => {
         window.scrollTo(0,0)
     }, [product])
 
