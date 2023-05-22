@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { UserAuth } from '../context/AuthContext';
+import '../sass/css/signin.css'
 
 const Signup = () => {
   const [email, setEmail] = useState('');
@@ -14,7 +15,7 @@ const Signup = () => {
     setError('');
     try {
       await createUser(email, password);
-      history.push('/account')
+      history.push('/Layout')
     } catch (e) {
       setError(e.message);
       console.log(e.message);
@@ -22,38 +23,42 @@ const Signup = () => {
   };
 
   return (
-    <div className='max-w-[700px] mx-auto my-16 p-4'>
-      <div>
-        <h1 className='text-2xl font-bold py-2'>Sign up for a free account</h1>
-        <p className='py-2'>
-          Already have an account yet?{' '}
-          <Link to='/' className='underline'>
-            Sign in.
-          </Link>
-        </p>
-      </div>
-      <form onSubmit={handleSubmit}>
-        <div className='flex flex-col py-2'>
-          <label className='py-2 font-medium'>Email Address</label>
+    
+     
+      <form onSubmit={handleSubmit} className='form'>
+      <h1 className='title'>Đăng kí</h1>
+
+        <div className='input'>
+          <label className=''>Email</label>
           <input
             onChange={(e) => setEmail(e.target.value)}
-            className='border p-3'
+            className=''
             type='email'
           />
         </div>
-        <div className='flex flex-col py-2'>
-          <label className='py-2 font-medium'>Password</label>
+
+        <div className='input'>
+          <label className=''>Password</label>
           <input
             onChange={(e) => setPassword(e.target.value)}
-            className='border p-3'
-            type='password'
+            className=''
+            type=''
           />
         </div>
-        <button className='border border-blue-500 bg-blue-600 hover:bg-blue-500 w-full p-4 my-2 text-white'>
+        <button className='btn-sign'>
           Sign Up
         </button>
+        
+        <p className=''>
+          Bạn đã có tài khoản?{' '}
+          <Link to='/signin' className='sign'>
+            Đăng nhập
+          </Link>
+        </p>
+    
       </form>
-    </div>
+
+
   );
 };
 

@@ -1,0 +1,13 @@
+.container {
+  font-size: 20px;
+  
+  position: relative;
+  right: 0;
+}
+.btn-logout {
+  width: 50px;
+  height: 25px;
+  cursor: pointer;
+  border-radius: 10%;
+  margin-left: 37%;
+}

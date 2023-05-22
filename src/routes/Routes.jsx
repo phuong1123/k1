@@ -2,37 +2,31 @@ import React from 'react'
 
 import { Route, Switch } from 'react-router-dom'
 
-import Home from '../pages/Home'
+import Signin from '../pages/Signin'
 import Catalog from '../pages/Catalog'
 import Cart from '../pages/Cart'
 import Product from '../pages/Product'
 import Accessories from '../pages/Accessories'
 import Contact from '../pages/Contact'
-import Payment from '../pages/Payment'
-import Order from '../pages/Order'
-import Signin from '../components/Signin'
-
-
+import Home from '../pages/Home'
+import Signup from '../pages/Signup'
+import { UserAuth } from '../context/AuthContext'
 
 const Routes = () => {
+
+   const {user} =UserAuth()
     return (
-        <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/catalog/:slug' component={Product} />
-            <Route exact path='/catalog' component={Catalog} />
-            <Route exact path='/cart' component={Cart} />
-            <Route exact path='/order' component={Order} />
-            <Route exact path='/payment' component={Payment} />
-            <Route exact path='/accessories' component={Accessories} />
-            <Route exact path='/contact' component={Contact} />
+        <Switch> 
+        <Route path='/' exact component={Home} />
+        <Route path='/Signin' exact component={Signin} />
+        <Route path='/catalog/:slug' component={Product} />
+        <Route path='/catalog' component={Catalog} />
+        <Route path='/cart' component={Cart} />
+        <Route path='/accessories' component={Accessories} />
+        <Route path='/contact' component={Contact} />
+        <Route path='/signup' component={Signup} />
         </Switch>
     )
 }
 
-
-
-
-
 export default Routes
-
-
